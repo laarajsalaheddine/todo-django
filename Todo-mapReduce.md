@@ -220,7 +220,7 @@ cat purchases.txt | python mapper.py | sort -k1,1 | python reducer.py
 
 #### Hadoop Execution
 ```bash
-hadoop jar /home/cloudera/pythonfile/hadoop-streaming-2.7.3.jar -input  /word_count_in_python -output  word_count_in_python/output   -mapper /home/cloudera/pythonfile/mapper.py   -reducer /home/cloudera/pythonfile/word_count_reducerr.py
+hadoop jar /home/cloudera/pythonfile/hadoop-streaming-2.7.3.jar -input  /javafile -output  javafile/output   -mapper /home/cloudera/pythonfile/mapper.py   -reducer /home/cloudera/pythonfile/reducer.py
 ```
 
 ### View Result
