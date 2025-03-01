@@ -1,59 +1,26 @@
-### ✅ **To-Do List: Install React 18 and a Compatible `react-konva` Version**  
+### **🛠 Fixing React 19 Conflict & Ensuring `react-konva` Works with React 18**
+### **🔴🔴🔴🔴🔴🔴 Navigate to project diractory, in this case `my-app`🔴🔴🔴🔴🔴🔴
+---
 
-Follow these steps to ensure that your project uses **React 18** with a compatible version of `react-konva` (**v18.1.0**):
+### **🔴 Step 1: Completely Remove React & React-Konva**
+Run the following commands to **fully remove all incorrect versions**:
+```sh
+npm uninstall react react-dom react-konva
+```
+Then **remove `node_modules` and `package-lock.json`**:
+```sh
+rm -rf node_modules package-lock.json
+```
+(This is important to clean dependencies and avoid conflicts.)
 
 ---
 
-### **🟢 Step 1: Uninstall Current React and React DOM**
-Before installing React 18, remove any existing versions of React:
+### **🟢 Step 2: Install Correct Versions**
+Now, reinstall **React 18 and `react-konva@18.1.0`**:
 ```sh
-npm uninstall react react-dom
+npm install react@18 react-dom@18 react-konva@18.1.0
 ```
-or with Yarn:
-```sh
-yarn remove react react-dom
-```
-
----
-
-### **🟢 Step 2: Install React 18**
-Now, install **React 18 and React DOM**:
-```sh
-npm install react@18 react-dom@18
-```
-or with Yarn:
-```sh
-yarn add react@18 react-dom@18
-```
-
----
-
-### **🟢 Step 3: Uninstall Incompatible `react-konva`**
-If you have an incompatible version of `react-konva` (designed for React 19), remove it:
-```sh
-npm uninstall react-konva
-```
-or with Yarn:
-```sh
-yarn remove react-konva
-```
-
----
-
-### **🟢 Step 4: Install the Compatible `react-konva` Version (18.1.0)**
-Now, install a version of `react-konva` that works with React 18:
-```sh
-npm install react-konva@18.1.0
-```
-or with Yarn:
-```sh
-yarn add react-konva@18.1.0
-```
-
----
-
-### **🟢 Step 5: Verify the Installed Versions**
-To confirm everything is correctly installed, run:
+Verify the versions:
 ```sh
 npm list react react-dom react-konva
 ```
@@ -66,16 +33,26 @@ Expected output:
 
 ---
 
-### **🟢 Step 6: Restart Your Project**
-After installing everything, restart your development server:
+### **🟢 Step 3: Clean Cache and Reinstall Dependencies**
+Just to be extra sure, clean the cache:
 ```sh
-npm start
-```
-or if using Next.js:
-```sh
-npm run dev
+npm cache clean --force
+npm install
 ```
 
 ---
 
-✅ **Now your project is running React 18 with `react-konva` 18.1.0, ensuring full compatibility and stability!** 🚀
+### **🟢 Step 4: Restart the Project**
+Now, run your React app again:
+```sh
+npm start
+```
+
+---
+
+### **🎯 Why Does This Fix the Issue?**
+- **React 19 is still in beta**, so it's causing compatibility issues.
+- **`react-konva@18.1.0` requires React 18**, but your project had **React 19** installed.
+- **Removing `node_modules` and `package-lock.json`** ensures a clean install.
+
+🚀 **Try this and let me know if you still hit any issues!** 🚀
